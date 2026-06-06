@@ -1,0 +1,27 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Ignored default folder with query files
+/queries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Tránh push các file cấu hình và bộ nhớ tạm của IntelliJ IDEA
+.idea/
+*.iml
+out/
+gen/
+
+# Tránh push thư mục build của các công cụ quản lý dự án (nếu có dùng)
+target/
+.gradle/
+build/
+
+# Tránh push các file hệ thống của máy tính
+.DS_Store
+Thumbs.db
+
+# TÙY CHỌN: Tránh push file danh sách bài tập của plugin (nếu không cần lưu)
+.leetcode/
