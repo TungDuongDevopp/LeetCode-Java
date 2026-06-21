@@ -4,7 +4,6 @@ class Solution {
     public int lengthOfLongestSubstring(String s) {
 
         HashSet<Character> set = new HashSet<>();
-
         int maxLength = 0;
         int left = 0;
 
