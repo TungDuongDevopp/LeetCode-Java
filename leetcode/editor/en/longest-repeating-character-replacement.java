@@ -32,7 +32,6 @@ class Solution {
             while(right-left+1 - maxFre > k){
                 char cleft = s.charAt(left);
                 count[cleft-'A']--;
-                maxFre = Math.max(maxFre,count[cleft-'A']);
                 left++;
             }
             // Cập nhật độ dài lớn nhất
