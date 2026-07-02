@@ -15,7 +15,7 @@ class Solution {
 
             ans += map.getOrDefault(prefix - k, 0);
 
-            map.put(prefix, map.getOrDefault(prefix, 0) + 1);
+            map.merge(prefix,1,Integer::sum);
         }
         return ans;
     }
