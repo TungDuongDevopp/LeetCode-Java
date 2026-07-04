@@ -3,31 +3,34 @@ import java.util.Map;
 
 public class Solution {
     public int findMaxLength(int[] nums) {
-        // Map to store the first occurrence of a running sum: <Running Sum, Index>
-        Map<Integer, Integer> map = new HashMap<>();
+        // Khởi tạo biến đo độ dài lớn nhất
+        int maxLen = 0;
 
-        map.put(0, -1);
+        // Khai báo biến prefix
+        int prefix  = 0;
 
-        int sum = 0;
-        int maxLength = 0;
+        //Khai báo HashMap lưu prefix,index
+        Map <Integer,Integer> map = new HashMap<>();
 
-        for (int i = 0; i < nums.length; i++) {
-            // Treat 0 as -1, and 1 as +1
-            if (nums[i] == 0) {
-                sum += -1;
-            } else {
-                sum += 1;
+        // Đưa phần tử ảo 0 -> -1 vào map
+        map.put(0,-1);
+
+        for(int i = 0; i<nums.length;i++){
+            //coi 0 = -1, 1=1
+            prefix += (nums[i] == 0) ? -1 : 1;
+
+            //Nếu có prefix trùng, tính length thông qua value
+            if(map.containsKey(prefix)){
+                maxLen = Math.max(maxLen,i-map.get(prefix));
+            }
+            // Chỉ thê prefix khi mới xuất hiện lần đầu để tính max len
+            else{
+                map.put(prefix,i);
             }
 
-            // If the map already contains this sum, calculate the distance
-            if (map.containsKey(sum)) {
-                maxLength = Math.max(maxLength, i - map.get(sum));
-            } else {
-                // Only store the first occurrence to maximize the subarray length
-                map.put(sum, i);
-            }
         }
 
-        return maxLength;
+        // return kết quả trả về
+        return maxLen;
     }
 }
