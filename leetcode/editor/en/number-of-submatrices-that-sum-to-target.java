@@ -3,6 +3,13 @@ import java.util.*;
 
 class Solution {
     public int numSubmatrixSumTarget(int[][] matrix, int target) {
+        // Nếu lùn và rộng (rows < cols), xoay ma trận thành gầy và dài
+        if (matrix.length < matrix[0].length) {
+            matrix = transpose(matrix);
+        }
+        return solveSolution(matrix, target);
+    }
+    private int solveSolution(int[][] matrix, int target){
         int maxRow = matrix.length;
         int maxCol = matrix[0].length;
         int count = 0;
@@ -32,6 +39,16 @@ class Solution {
             }
         }
         return count;
+    }
+    private int[][] transpose(int[][] matrix) {
+        int r = matrix.length, c = matrix[0].length;
+        int[][] t = new int[c][r];
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                t[j][i] = matrix[i][j];
+            }
+        }
+        return t;
     }
 }
 
