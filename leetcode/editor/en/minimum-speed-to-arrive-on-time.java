@@ -4,15 +4,11 @@ import java.util.*;
 class Solution {
     public int minSpeedOnTime(int[] dist, double hour) {
         int left = 1;
-        long maxDis = Long.MIN_VALUE;
         int minSpeed = -1;
-
         if (hour <= (double) dist.length - 1.0) {
             return -1;
         }
-
         int right = 10000000;
-
         while(left<=right){
             int mid = left + (right - left)/2;
             if(checkSpeed(dist,hour,mid)){
@@ -34,7 +30,6 @@ class Solution {
         }
         // Chuyến cuối không phải tốn thời gian đợi do đã đến đích
         totalTime += (double) dist[dist.length - 1] / speed;
-
         return totalTime <= hour;
     }
 }
