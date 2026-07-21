@@ -4,7 +4,7 @@ import java.util.*;
 class Solution {
     public int minimumSize(int[] nums, int maxOperations) {
         int left = 1;
-        int right = 2;
+        int right = 1;
         for(int num : nums){
             right  =  Math.max(right,num);
         }
