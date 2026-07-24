@@ -3,7 +3,8 @@ import java.util.*;
 
 class Solution {
     public int[] kthSmallestPrimeFraction(int[] arr, int k) {
-        double low = 0.0;
+
+        double low = (double) arr[0]/arr[arr.length-1];
         double high = 1.0;
 
         // Mảng này dùng để "hứng" cặp số [tử số, mẫu số] lớn nhất từ hàm helper
